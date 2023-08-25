@@ -37,6 +37,7 @@ for ($i = 0; $i < 6; $i++) {
 }
 
 $_SESSION["reset_password_token"] = $verification_token;
+$_SESSION["reset_password_email"] = $email;
 
 // Create an instance of PHPMailer
 $mail = new PHPMailer();
