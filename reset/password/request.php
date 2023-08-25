@@ -20,7 +20,7 @@ $con = mysqli_connect($settings["beta_database"]["host"], $settings["beta_databa
 if (mysqli_connect_errno()) exit("Error connecting to our database! Please try again later.");
 
 // Check if account exists
-$stmt = $con->prepare("SELECT id, displayname FROM " . $settings["database_tables"]["accounts"] . " WHERE email = ?");
+$stmt = $con->prepare("SELECT COUNT(*) FROM " . $settings["database_tables"]["accounts"] . " WHERE email = ?");
 $stmt->bind_param('s', $email);
 $stmt->execute();
 $stmt->store_result();
