@@ -16,7 +16,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/config.php");
 session_start();
 
 // Get Email
-$email = $_POST["email"];
+$email = $_POST["mail"];
 
 // Conect to database
 $con = mysqli_connect($settings["beta_database"]["host"], $settings["beta_database"]["username"], $settings["beta_database"]["password"], $settings["beta_database"]["database"]);
