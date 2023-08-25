@@ -61,7 +61,7 @@ try {
 
     // Recipients
     $mail->setFrom($settings["mail"]["sender_mail"], $settings["mail"]["sender_name"]);
-    $mail->addAddress($email, $displayname);                        //Add a recipient
+    $mail->addAddress($_SESSION["reset_password_email"], $displayname);                        //Add a recipient
 
     // Content
     $mail->isHTML(true);                                            //Set email format to HTML
@@ -76,6 +76,9 @@ try {
 
     // Send mail
     $mail->send();
+
+    // Destroy session
+    session_destroy();
 
     // Redirect to login
     header("Location: /");
