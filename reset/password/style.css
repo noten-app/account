@@ -1,0 +1,80 @@
+#mail-input,
+#password-input,
+#password-input2 {
+    width: calc(100vw - 2rem);
+    border: 0;
+    padding: 1rem;
+    height: 3rem;
+    color: var(--background-color);
+    background-color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#submit {
+    width: calc(100vw - 2rem);
+    border: 0;
+    padding: 1rem;
+    height: 3rem;
+    color: var(--background-color);
+    background-color: var(--text-color);
+    font-size: 1rem;
+}
+
+form {
+    margin: 0;
+}
+
+main {
+    padding: 1rem;
+    height: fit-content;
+    margin: auto;
+    background-color: var(--background2-color);
+    border-radius: 1rem;
+}
+
+body {
+    display: grid;
+    place-content: center;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+em {
+    font-style: normal;
+}
+
+@media screen and (min-width: 800px) {
+
+    h1 {
+        grid-area: title;
+    }
+
+    main {
+        width: fit-content;
+    }
+
+    form {
+        grid-area: form;
+        display: grid;
+        place-items: center;
+    }
+
+    form input {
+        display: block;
+        max-width: 600px;
+        border-radius: 0.5rem;
+    }
+
+    em {
+        color: var(--accent-color);
+    }
+
+    h1 {
+        font-size: min(3.5rem, 6vw);
+    }
+}
