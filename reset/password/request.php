@@ -28,8 +28,6 @@ $stmt->bind_param('s', $email);
 $stmt->execute();
 $stmt->store_result();
 if ($stmt->num_rows != 1) exit("Account not found! | Could also be that there are multiple accounts with the same email address!");
-$stmt->bind_result($id, $displayname);
-$stmt->fetch();
 $stmt->close();
 
 // Create 6 digit verification code using Chars 0-9
