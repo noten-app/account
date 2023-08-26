@@ -93,6 +93,16 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+.register_link {
+    position: absolute;
+    bottom: 4rem;
+    left: 1rem;
+    right: 1rem;
+    text-align: right;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 
 /* 
 Orientation landscape
@@ -147,6 +157,11 @@ NOTE: This has been deactivated because this version will only be used on mobile
 
     .password_reset {
         bottom: 5.5rem;
+        left: auto;
+    }
+
+    .register_link {
+        bottom: 7rem;
         left: auto;
     }
 }
