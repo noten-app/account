@@ -67,7 +67,7 @@ try {
     $mail->isHTML(true);                                            //Set email format to HTML
     $mail->Subject = 'Noten-App | Password Reset';
 
-    // Content from /mails/apply.html
+    // Content from /mails/password_changed.html
     $mail->Body       = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/mails/password_changed.html");
     $mail->AltBody    = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/mails/password_changed.txt");
 
