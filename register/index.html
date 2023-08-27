@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Register a new Noten-App-Account." />
+    <title>Register | Noten-App</title>
+    <link rel="stylesheet" href="/res/css/fonts.css" />
+    <link rel="stylesheet" href="/res/css/main.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://assets.noten-app.de/images/logo/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://assets.noten-app.de/images/logo/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://assets.noten-app.de/images/logo/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://assets.noten-app.de/images/logo/safari-pinned-tab.svg"
+      color="#eb660e"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://assets.noten-app.de/images/logo/favicon.ico"
+    />
+  </head>
+
+  <body>
+    <main id="main">
+      <h1>Register</h1>
+      <span id="registertext">Register a Noten-App-Account</span>
+      <form action="register.php" method="POST">
+        <div class="input-container">
+          <input
+            type="email"
+            autocomplete="username"
+            spellcheck="false"
+            tabindex="0"
+            aria-label="E-Mail"
+            name="email"
+            value=""
+            autocapitalize="none"
+            placeholder=" "
+          />
+          <div class="input-tooltip" aria-hidden="true">E-Mail</div>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            spellcheck="false"
+            tabindex="0"
+            aria-label="Password"
+            name="password"
+            value=""
+            autocapitalize="none"
+            placeholder=" "
+          />
+          <div class="input-tooltip" aria-hidden="true">Password</div>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            spellcheck="false"
+            tabindex="0"
+            aria-label="Repeat Password"
+            name="password_repeat"
+            value=""
+            autocapitalize="none"
+            placeholder=" "
+          />
+          <div class="input-tooltip" aria-hidden="true">Repeat Password</div>
+        </div>
+        <div id="password_requirements">
+          <p>
+            <span
+              id="password_requirement-length"
+              class="password_requirement-unsatisfied"
+              >&#10005;</span
+            >
+            Password Length: 8 - 72 Characters
+          </p>
+          <p>
+            <span
+              id="password_requirement-same"
+              class="password_requirement-unsatisfied"
+              >&#10005;</span
+            >
+            Both passwords are the same
+          </p>
+          <p>
+            <span
+              id="password_requirement-special"
+              class="password_requirement-unsatisfied"
+              >&#10005;</span
+            >
+            Contains special characters
+          </p>
+          <p>
+            <span
+              id="password_requirement-uppercase"
+              class="password_requirement-unsatisfied"
+              >&#10005;</span
+            >
+            Contains uppercase letters
+          </p>
+          <p>
+            <span
+              id="password_requirement-lowercase"
+              class="password_requirement-unsatisfied"
+              >&#10005;</span
+            >
+            Contains lowercase letters
+          </p>
+          <p>
+            <span
+              id="password_requirement-number"
+              class="password_requirement-unsatisfied"
+              >&#10005;</span
+            >
+            Contains numbers
+          </p>
+        </div>
+        <input type="submit" id="login_button" value="Register" disabled />
+        <a id="login_crosslink" href="/login/"> Login Instead </a>
+      </form>
+    </main>
+    <script src="https://assets.noten-app.de/js/jquery/jquery-3.6.1.min.js"></script>
+    <script src="password_requirements.js"></script>
+  </body>
+</html>
