@@ -61,9 +61,9 @@ try {
     $mail->isHTML(true);                                            //Set email format to HTML
     $mail->Subject = 'Noten-App | Password Reset';
 
-    // Content from /mails/verification_code.html
-    $mail->Body       = str_replace("RESETCODE", $verification_token, file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/mails/verification_code.html"));
-    $mail->AltBody    = str_replace("RESETCODE", $verification_token, file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/mails/verification_code.txt"));
+    // Content from /mails/password_reset_verification_code.html
+    $mail->Body       = str_replace("RESETCODE", $verification_token, file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/mails/password_reset_verification_code.html"));
+    $mail->AltBody    = str_replace("RESETCODE", $verification_token, file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/mails/password_reset_verification_code.txt"));
 
     // Disable debugging
     $mail->SMTPDebug = false;
