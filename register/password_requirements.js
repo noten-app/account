@@ -8,7 +8,7 @@ const password_requirement_lowercase = document.getElementById("password_require
 const password_requirement_number = document.getElementById("password_requirement-number");
 const password_requirement_special = document.getElementById("password_requirement-special");
 
-const login_button = document.getElementById("login_button");
+const register_button = document.getElementById("register_button");
 
 // Password requirements show/hide
 
@@ -41,8 +41,8 @@ let password_requirements = {
         }
         password_requirements.status_list[requirement.id.toString().replace('password_requirement-', '')] = status;
         if (Object.values(password_requirements.status_list).every((val) => val === true)) {
-            login_button.disabled = false;
-        } else login_button.disabled = true;
+            register_button.disabled = false;
+        } else register_button.disabled = true;
     },
     status_list: {
         same: false,
