@@ -24,9 +24,9 @@ $con = mysqli_connect($settings["beta_database"]["host"], $settings["beta_databa
 if (mysqli_connect_errno()) exit("Error connecting to our database! Please try again later.");
 
 // Check if account exists
-if ($input_type = "email") $stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, gradesystem FROM " . $settings["database_tables"]["accounts"] . " WHERE email = ?");
+if ($input_type == "email") $stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, gradesystem FROM " . $settings["database_tables"]["accounts"] . " WHERE email = ?");
 else $stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, gradesystem FROM " . $settings["database_tables"]["accounts"] . " WHERE username = ?");
-$stmt->bind_param('s', $username);
+$stmt->bind_param('s', $input["email_or_username"]);
 $stmt->execute();
 $stmt->store_result();
 if ($stmt->num_rows == 0) exit("Account not found!");
