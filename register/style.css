@@ -103,7 +103,7 @@ input:focus~.input-tooltip {
     color: var(--text-color);
 }
 
-#login_button {
+#register_button {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -116,7 +116,7 @@ input:focus~.input-tooltip {
     cursor: not-allowed;
 }
 
-#login_button:enabled {
+#register_button:enabled {
     background-color: var(--accent-color);
     cursor: pointer;
 }
