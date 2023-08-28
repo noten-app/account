@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Log in to your Noten-App-Account." />
-    <title>Login | Noten-App</title>
+    <meta name="description" content="Register a new Noten-App-Account." />
+    <title>Register | Noten-App</title>
     <link rel="stylesheet" href="/res/css/fonts.css" />
     <link rel="stylesheet" href="/res/css/main.css" />
     <link rel="stylesheet" href="./style.css" />
@@ -40,44 +40,40 @@
   <body>
     <main id="main">
       <h1>Login</h1>
-      <form action="/login/login.php" method="POST">
-        <div class="input">
-          <label for="username">Username</label><br />
+      <span id="logintext">Login with a Noten-App-Account</span>
+      <form action="login.php" method="POST">
+        <div class="input-container">
           <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Username"
-            required
+            type="email"
+            autocomplete="email"
+            spellcheck="false"
+            tabindex="0"
+            aria-label="E-Mail"
+            name="email"
+            value=""
+            autocapitalize="none"
+            placeholder=" "
           />
+          <div class="input-tooltip" aria-hidden="true">E-Mail or Username</div>
         </div>
-        <div class="input">
-          <label for="password">Password</label><br />
+        <div class="input-container">
           <input
             type="password"
+            autocomplete="current-password"
+            spellcheck="false"
+            tabindex="0"
+            aria-label="Password"
             name="password"
-            id="password"
-            placeholder="Password"
-            required
+            value=""
+            autocapitalize="none"
+            placeholder=" "
           />
+          <div class="input-tooltip" aria-hidden="true">Password</div>
         </div>
-        <div class="input" id="login_button_container">
-          <input type="submit" id="login_button" value="Login" />
-        </div>
-        <div
-          class="password_reset"
-          onclick="location.assign('/reset/password/')"
-        >
-          Reset Password
-        </div>
-        <div class="register_link" onclick="location.assign('/register/')">
-          Register Instead
-        </div>
+        <div id="spacer"></div>
+        <input type="submit" id="login_button" value="Login" disabled />
+        <a id="register_crosslink" href="/register/"> Register Instead </a>
       </form>
-      <div class="welcome_bg background_img"></div>
-      <div class="buttons_bg background_img"></div>
-      <!-- <hr>
-        <button onclick="window.location.assign('./sqowey/');" id="sqowey_login">Mit besserem Sqowey-Account anmelden</button> -->
     </main>
   </body>
 </html>
