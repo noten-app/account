@@ -24,13 +24,13 @@ $con = mysqli_connect($settings["beta_database"]["host"], $settings["beta_databa
 if (mysqli_connect_errno()) exit("Error connecting to our database! Please try again later.");
 
 // Check if account exists
-if ($input_type == "email") $stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, gradesystem FROM " . $settings["database_tables"]["accounts"] . " WHERE email = ?");
-else $stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, gradesystem FROM " . $settings["database_tables"]["accounts"] . " WHERE username = ?");
+if ($input_type == "email") $stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, gradesystem, school_year FROM " . $settings["database_tables"]["accounts"] . " WHERE email = ?");
+else $stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, gradesystem, school_year FROM " . $settings["database_tables"]["accounts"] . " WHERE username = ?");
 $stmt->bind_param('s', $input["email_or_username"]);
 $stmt->execute();
 $stmt->store_result();
 if ($stmt->num_rows == 0) exit("Account not found!");
-$stmt->bind_result($id, $displayname, $password_hash, $email, $account_version, $setting_rounding, $setting_sorting, $setting_system);
+$stmt->bind_result($id, $displayname, $password_hash, $email, $account_version, $setting_rounding, $setting_sorting, $setting_system, $school_year);
 $stmt->fetch();
 
 // Add salt and password and check if right
@@ -47,6 +47,7 @@ $_SESSION["user_email"] = $input["email"];
 $_SESSION["setting_rounding"] = $setting_rounding;
 $_SESSION["setting_sorting"] = $setting_sorting;
 $_SESSION["setting_system"] = $setting_system;
+$_SESSION["setting_year"] = $school_year;
 $_SESSION["beta_tester"] = $beta_tester;
 
 header("Location: https://beta.noten-app.de");
