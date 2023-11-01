@@ -43,11 +43,24 @@ if (!password_verify($input["password"], $password_hash)) exit("Wrong password")
 $_SESSION["login_method"] = "login";
 $_SESSION["user_name"] = $displayname;
 $_SESSION["user_id"] = $id;
-$_SESSION["user_email"] = $input["email"];
+if (isset($input["email"])) $_SESSION["user_email"] = $input["email"];
+else $_SESSION["user_email"] = $email;
 $_SESSION["setting_rounding"] = $setting_rounding;
 $_SESSION["setting_sorting"] = $setting_sorting;
 $_SESSION["setting_system"] = $setting_system;
 $_SESSION["setting_year"] = $school_year;
-$_SESSION["beta_tester"] = $beta_tester;
 
-header("Location: https://beta.noten-app.de");
+if (!isset($_POST["forward"])) {
+    header("Location: " . $settings["redirect"]["default"]);
+    exit();
+}
+
+// Check if forward domain starts with "https://"
+// If not -> prepend it
+// (If domain starts with http prepend it too so domain is invalidated in next step)
+if (!str_starts_with($_POST["forward"], "https://")) $_POST["forward"] = "https://" . $_POST["forward"];
+// Check if forward domain is allowed (*.noten-app.de)
+$forward_domain = parse_url($_POST["forward"], PHP_URL_HOST);
+if ($forward_domain == null) exit("Invalid forward domain!");
+if (!str_ends_with($forward_domain, $settings["redirect"]["allowed_forwarding"])) exit("Invalid forward domain!");
+header("Location: " . $_POST["forward"]);
