@@ -51,7 +51,7 @@ $_SESSION["setting_system"] = $setting_system;
 $_SESSION["setting_year"] = $school_year;
 
 if (!isset($_POST["forward"])) {
-    header("Location: " . $settings["redirect"]["default"]);
+    header("Location: " . $settings["urls"]["default"]);
     exit();
 }
 
@@ -62,5 +62,5 @@ if (!str_starts_with($_POST["forward"], "https://")) $_POST["forward"] = "https:
 // Check if forward domain is allowed (*.noten-app.de)
 $forward_domain = parse_url($_POST["forward"], PHP_URL_HOST);
 if ($forward_domain == null) exit("Invalid forward domain!");
-if (!str_ends_with($forward_domain, $settings["redirect"]["allowed_forwarding"])) exit("Invalid forward domain!");
+if (!str_ends_with($forward_domain, $settings["urls"]["allowed_forwarding"])) exit("Invalid forward domain!");
 header("Location: " . $_POST["forward"]);
