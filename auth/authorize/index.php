@@ -41,6 +41,18 @@ if ($stmt = $con->prepare('SELECT displayname FROM ' . $settings["database_table
     $stmt->close();
 }
 
+// Check if user already authorized this application
+if ($stmt = $con->prepare('SELECT COUNT(*) FROM ' . $settings["database_tables"]["authorizations"] . ' WHERE application_id = ? AND user_id = ?')) {
+    $stmt->bind_param('ss', $_GET["client_id"], $_SESSION["user_id"]);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+}
+if ($count > 0) header("Location: /auth/error/?error=invalid_request&error_description=You%20have%20already%20authorized%20this%20application%21&nextsteptext=Manage%20Applications&nextstepurl=" . urlencode($settings["urls"]["base_url"] . "/auth/manage/"));
+
+
 // Generate CSRF-Protection Token
 $csrf_token = bin2hex(random_bytes(32));
 $_SESSION["csrf_token"] = $csrf_token;
