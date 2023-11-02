@@ -29,7 +29,7 @@ if ($stmt = $con->prepare('SELECT COUNT(*) FROM ' . $settings["database_tables"]
     $stmt->fetch();
     $stmt->close();
 }
-if ($count <= 0) die("/auth/error/?error=invalid_request&error_description=Application%20does%20not%20exist");
+if ($count <= 0) die("/auth/error/?error=invalid_request&error_description=Application%20does%20not%20exist%21");
 
 // Check if user already authorized this application
 if ($stmt = $con->prepare('SELECT COUNT(*) FROM ' . $settings["database_tables"]["authorizations"] . ' WHERE application_id = ? AND user_id = ?')) {
@@ -40,7 +40,7 @@ if ($stmt = $con->prepare('SELECT COUNT(*) FROM ' . $settings["database_tables"]
     $stmt->fetch();
     $stmt->close();
 }
-if ($count > 0) die("/auth/error/?error=invalid_request&error_description=You%20already%20authorized%20this%20application");
+if ($count > 0) die("/auth/error/?error=invalid_request&error_description=You%20have%20already%20authorized%20this%20application%21&nextsteptext=Manage%20Applications&nextstepurl=" . urlencode($settings["urls"]["base_url"] . "/auth/manage/"));
 
 // Generate values
 $auth_code = bin2hex(random_bytes(64));
