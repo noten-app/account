@@ -1,0 +1,144 @@
+body {
+    display: grid;
+    place-content: center;
+}
+
+main {
+    height: fit-content;
+    width: fit-content;
+    padding: 2rem;
+    background-color: var(--background2-color);
+    position: relative;
+    max-width: 500px;
+}
+
+main h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.75rem;
+}
+
+main #logintext {
+    display: block;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#spacer {
+    height: 2rem;
+}
+
+#support {
+    color: #833;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#home {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: 0;
+    cursor: pointer;
+}
+
+/* Info container */
+
+.info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr min-content;
+    gap: 0.5rem;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "app_creator_icon app_users_icon app_creation_icon"
+        "app_creator app_users app_creation"
+    ;
+}
+
+.info-container>* {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #888;
+}
+
+hr {
+    width: 100%;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+}
+
+.info-data {
+    max-width: 150px;
+    border-top: 2.5px solid;
+    padding-top: 0.5rem;
+}
+
+.app_creator {
+    grid-area: app_creator;
+}
+
+.app_creator_icon {
+    grid-area: app_creator_icon;
+}
+
+.app_users {
+    grid-area: app_users;
+}
+
+.app_users_icon {
+    grid-area: app_users_icon;
+}
+
+.app_creation_icon {
+    grid-area: app_creation_icon;
+}
+
+.app_creation {
+    grid-area: app_creation;
+}
+
+/* Small screen adjustments */
+
+@media screen and (min-width: 475px) {
+    main {
+        border-radius: 1rem;
+        min-width: 450px;
+        width: fit-content;
+    }
+
+    body {
+        background-color: var(--background-color);
+    }
+}
+
+@media screen and (max-width: 475px) {
+    main {
+        width: 100vw;
+    }
+
+    body {
+        background-color: var(--background2-color);
+        place-content: start center;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+    select,
+    textarea,
+    input {
+        font-size: 16px;
+    }
+}
+
+.accent {
+    color: var(--accent-color);
+}
